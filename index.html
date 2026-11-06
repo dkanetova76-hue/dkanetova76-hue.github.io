@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Электронные учебники Канетовой</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Электронные учебники Д. Э. Канетовой: теория, практика, тесты по таксономии Блума, сдача отчётов и кабинет преподавателя.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap">
+<style>
+/* Layout: a library shelf — header with the author's name, then one row per textbook (spine colour + facts), then how-to for students and the teacher. */
+:root{
+  --bg:#f3f4f1; --surface:#ffffff; --sunk:#e9ebe6; --ink:#1c2531; --muted:#5a6573; --line:#d6dbd9;
+  --accent:#2a4a7a; --accent-soft:#e3e9f3; --stamp:#a5372a; --ok:#2d7a4d; --ok-soft:#e1f0e6;
+  --f-display:"Literata","PT Serif",Georgia,serif; --f-ui:"IBM Plex Sans","PT Sans","Segoe UI",Arial,sans-serif; --f-mono:"IBM Plex Mono","PT Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#151a21;--surface:#1c232c;--sunk:#232b36;--ink:#e4e8ee;--muted:#9aa5b3;--line:#323c49;--accent:#8fb0e3;--accent-soft:#25344a;--stamp:#e2816f;--ok:#7cc79a;--ok-soft:#1f3529;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#151a21;--surface:#1c232c;--sunk:#232b36;--ink:#e4e8ee;--muted:#9aa5b3;--line:#323c49;--accent:#8fb0e3;--accent-soft:#25344a;--stamp:#e2816f;--ok:#7cc79a;--ok-soft:#1f3529;color-scheme:dark}
+*{box-sizing:border-box}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.55}
+a{color:var(--accent)}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{background:var(--surface);border-bottom:1px solid var(--line)}
+header.top .wrap{padding-block:44px 36px;display:grid;gap:12px}
+.eyebrow{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--stamp);font-weight:600;margin:0}
+h1{font-family:var(--f-display);font-weight:600;font-size:clamp(30px,4.6vw,48px);line-height:1.08;margin:0;text-wrap:balance;max-width:20ch}
+.author{font-size:15.5px;color:var(--muted);max-width:62ch;margin:0}
+.author b{color:var(--ink);font-weight:600}
+.lead{font-family:var(--f-display);font-size:18px;line-height:1.6;max-width:62ch;margin:6px 0 0}
+main .wrap{padding-block:34px 70px;display:grid;gap:44px}
+h2{font-family:var(--f-display);font-weight:600;font-size:24px;margin:0 0 14px}
+.shelf{display:grid;gap:14px}
+.book{display:grid;grid-template-columns:14px minmax(0,1fr) auto;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;text-decoration:none;color:var(--ink)}
+.book:hover{border-color:var(--accent)}
+.book .spine{background:var(--c)}
+.book .body{padding:18px 20px;display:grid;gap:8px;min-width:0}
+.book .meta{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.book h3{font-family:var(--f-display);font-weight:600;font-size:22px;line-height:1.2;margin:0;text-wrap:balance}
+.book p{margin:0;font-size:14px;color:var(--muted);max-width:70ch}
+.facts{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.facts span{font-family:var(--f-mono);font-size:12px;border:1px solid var(--line);border-radius:4px;padding:2px 7px;background:var(--bg);font-variant-numeric:tabular-nums}
+.book .go{display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:8px;padding:18px 20px;border-left:1px solid var(--line);min-width:180px}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:8px 14px;font-size:14px;font-weight:500;text-decoration:none;color:var(--ink);white-space:nowrap}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.btn.pri:hover{filter:brightness(1.08);color:var(--surface)}
+.lang{font-size:12.5px;color:var(--muted)}
+.lang a{margin-left:4px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px}
+.panel h3{font-family:var(--f-display);font-weight:600;font-size:19px;margin:0 0 10px}
+.panel ol{margin:0;padding-left:20px;display:grid;gap:6px;font-size:14.5px}
+.panel p{margin:0 0 10px;font-size:14.5px}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.feat div{background:var(--surface);padding:16px 18px}
+.feat b{display:block;font-size:14.5px;margin-bottom:4px}
+.feat span{font-size:13.5px;color:var(--muted)}
+footer{border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+footer .wrap{padding-block:20px calc(20px + env(safe-area-inset-bottom,0px))}
+@media (max-width:720px){.book{grid-template-columns:10px minmax(0,1fr)}.book .go{grid-column:2;border-left:0;border-top:1px solid var(--line);align-items:flex-start;min-width:0}}
+</style>
+</head><body>
+<header class="top"><div class="wrap">
+  <p class="eyebrow">Электронные учебники</p>
+  <h1>Лекции, практика и контроль в одном окне</h1>
+  <p class="author"><b>Канетова Динара Эменовна</b>, кандидат физико-математических наук, доцент</p>
+  <p class="lead">Каждый учебник содержит конспект лекций, интерактивные практические работы, тесты по таксономии Блума и сдачу отчётов преподавателю. Вход для всех курсов общий.</p>
+</div></header>
+<main><div class="wrap">
+  <section><h2>Дисциплины</h2><div class="shelf" id="shelf"></div></section>
+  <section><h2>Что есть в каждом учебнике</h2><div class="feat">
+    <div><b>Теория</b><span>Конспект лекций с формулами, примерами и отметкой «Изучено».</span></div>
+    <div><b>Практика</b><span>Задания с полями ответа и расчётными моделями прямо в тексте.</span></div>
+    <div><b>Тесты по Блуму</b><span>Обратная связь, разбор ошибок, профиль по уровням.</span></div>
+    <div><b>Сдача работ</b><span>Отчёт .docx уходит преподавателю, оценка видна в «Мои работы».</span></div>
+  </div></section>
+  <section class="cols">
+    <div class="panel"><h3>Студенту</h3><ol>
+      <li>Возьмите у преподавателя код своей группы.</li>
+      <li>Откройте учебник своей дисциплины и нажмите «Регистрация». Укажите ФИО полностью, код группы, почту и пароль.</li>
+      <li>Подтвердите почту по ссылке из письма. Если письма нет, проверьте папку «Спам».</li>
+      <li>Ответы набирайте сами: вставка текста в поля отключена.</li>
+    </ol></div>
+    <div class="panel"><h3>Преподавателю</h3><p>Группы, коды регистрации, результаты тестов, сданные отчёты и активность студентов по всем дисциплинам.</p><a class="btn pri" id="teacher" href="#">Кабинет преподавателя</a></div>
+  </section>
+</div></main>
+<footer><div class="wrap">© <span id="yr">2026</span> Д. Э. Канетова. Материалы учебников предназначены для учебного процесса.</div></footer>
+<script>
+/* Чтобы добавить дисциплину, допишите ещё одну запись в этот список. */
+const BASE = 'https://dkanetova76-hue.github.io/';
+const COURSES = [
+  {title:'Интеллектуальные системы управления', meta:'Бакалавриат · 710500 «Интернет-технологии и управление» · МНУ им. К. Ш. Токтомаматова',
+   about:'Контур управления, экспертные системы, нечёткая логика, машинное обучение, нейросети и СППР.',
+   facts:['10 лекций','14 практических работ','26 тестов'], url: BASE + 'isu-trainer/', ky: BASE + 'isu-trainer/ky.html', color:'#2f7a6a'},
+  {title:'Корпоративное управление и организационный дизайн', meta:'Магистратура · 580200 «Менеджмент» · IT-менеджмент и цифровая трансформация',
+   about:'Теории и модели корпоративного управления, организационное проектирование, процессы, цифровая трансформация и оценка эффективности.',
+   facts:['10 лекций','14 практических занятий','12 СРМ','60 тестов','20 билетов'], url: BASE + 'kuod-trainer/', color:'#2a4a7a'}
+];
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+document.getElementById('shelf').innerHTML = COURSES.map(c => `
+  <article class="book" style="--c:${c.color}"><span class="spine" aria-hidden="true"></span>
+    <div class="body"><span class="meta">${esc(c.meta)}</span><h3>${esc(c.title)}</h3><p>${esc(c.about)}</p><div class="facts">${c.facts.map(f => `<span>${esc(f)}</span>`).join('')}</div></div>
+    <div class="go"><a class="btn pri" href="${c.url}">Открыть учебник</a>${c.ky ? `<span class="lang">Тил: <a href="${c.ky}">Кыргызча</a></span>` : ''}</div>
+  </article>`).join('');
+document.getElementById('teacher').href = BASE + 'isu-trainer/teacher.html';
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body></html>
